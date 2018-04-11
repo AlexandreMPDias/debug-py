@@ -29,9 +29,7 @@ Contains the following classes:
 
 # Requirements
 Requires installation of colorama: 
-| Package | Site |
-| ------ | ------ |
-| Colorama | [https://pypi.python.org/pypi/colorama][PlDb] |
+download from https://pypi.python.org/pypi/colorama][PlDb]
 
 or you can simples run:
 ```sh

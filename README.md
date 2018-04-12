@@ -29,7 +29,7 @@ Contains the following classes:
 
 # Requirements
 Requires installation of colorama: 
-download from https://pypi.python.org/pypi/colorama]
+download from https://pypi.python.org/pypi/colorama
 
 or you can simples run:
 ```sh

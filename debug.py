@@ -69,58 +69,58 @@ class Log():
         self._debug_level = debug_level
 
     def error(self,str):
-    """
-    Prints an error message on the console. [Error] colored RED
-    """
+        """
+        Prints an error message on the console. [Error] colored RED
+        """
         if self._debug_level == 0:
             self.__print(FONT_COLOR_RED + '[ Erro ]: ' + FONT_COLOR_RESET + str)
         return self
 
     
     def sucess(self,str):
-    """
-    Prints a sucess message on the console. [Sucess] colored Green
-    """
+        """
+        Prints a sucess message on the console. [Sucess] colored Green
+        """
         if self._debug_level == 0:
             self.__print(FONT_COLOR_GREEN + '[Sucess]: ' + FONT_COLOR_RESET + str)
         return self
 
     def info(self,str):
-    """
-    Prints an info message on the console. [Info] colored WHITE
-    """
+        """
+        Prints an info message on the console. [Info] colored WHITE
+        """
         if self._debug_level == 0:
             self.__print('[ Info ]: ' + str)
         return self
 
     def warn(self,str):
-    """
-    Prints an Warning message on the console. [Warn] colored WHITE
-    """
+        """
+        Prints an Warning message on the console. [Warn] colored WHITE
+        """
         if self._debug_level == 0:
             self.__print(FONT_COLOR_YELLOW + '[ Warn ]: ' + FONT_COLOR_RESET + str)
         return self
 
     def color(self,col="", str=''):
-    """
-    Prints a colored message on the console. The entire string colored @param col
-    """
+        """
+        Prints a colored message on the console. The entire string colored @param col
+        """
         if self._debug_level == 0:
             self.__print(col + str + FONT_COLOR_RESET)
         return self
 
     def split(self,col=""):
-    """
-    Draws a line on the console.
-    """
+        """
+        Draws a line on the console.
+        """
         if self._debug_level == 0:
             self.color(col,"-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
         return self
 
     def __print(self, str):
-    """
-    Prints a message on the console.
-    """
+        """
+        Prints a message on the console.
+        """
         print(str)
 
 

@@ -161,6 +161,7 @@ class IntegrityTest():
         found = self.__locator(path, os.path.isdir(path),hint)
         if not found and createIfNotFound:
             pathlib.Path(path).mkdir(parents=True, exist_ok=True)
+            log.sucess('[ {} ] created.'.format(path))
         return found
             
 

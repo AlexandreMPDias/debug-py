@@ -43,7 +43,6 @@ try:
     FONT_COLOR_GREEN = Fore.RESET+Fore.GREEN
     FONT_COLOR_RESET = Fore.RESET
     FONT_COLOR_YELLOW = Fore.RESET+Fore.YELLOW
-    colorama_imported = True
 
     """
     Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
@@ -55,7 +54,6 @@ except:
     FONT_COLOR_GREEN = ''
     FONT_COLOR_RESET = ''
     FONT_COLOR_YELOW = ''
-    colorama_imported = False
 
 #Debug Levels
 LOG_SHOW_EVERYTHING = 2
@@ -70,60 +68,65 @@ class Log():
         """
         self._debug_level = debug_level
 
+    def error(self,str):
     """
     Prints an error message on the console. [Error] colored RED
     """
-    def error(self,str):
         if self._debug_level == 0:
             self.__print(FONT_COLOR_RED + '[ Erro ]: ' + FONT_COLOR_RESET + str)
         return self
 
+    
+    def sucess(self,str):
     """
     Prints a sucess message on the console. [Sucess] colored Green
     """
-    def sucess(self,str):
         if self._debug_level == 0:
             self.__print(FONT_COLOR_GREEN + '[Sucess]: ' + FONT_COLOR_RESET + str)
         return self
 
+    def info(self,str):
     """
     Prints an info message on the console. [Info] colored WHITE
     """
-    def info(self,str):
         if self._debug_level == 0:
             self.__print('[ Info ]: ' + str)
         return self
 
+    def warn(self,str):
     """
     Prints an Warning message on the console. [Warn] colored WHITE
     """
-    def warn(self,str):
         if self._debug_level == 0:
             self.__print(FONT_COLOR_YELLOW + '[ Warn ]: ' + FONT_COLOR_RESET + str)
         return self
 
+    def color(self,col="", str=''):
     """
     Prints a colored message on the console. The entire string colored @param col
     """
-    def color(self,col="", str=''):
         if self._debug_level == 0:
             self.__print(col + str + FONT_COLOR_RESET)
         return self
 
     def split(self,col=""):
+    """
+    Draws a line on the console.
+    """
         if self._debug_level == 0:
             self.color(col,"-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
         return self
 
     def __print(self, str):
+    """
+    Prints a message on the console.
+    """
         print(str)
 
 
 log = Log()
 
 import ctypes
-
-
 
 def PopUp(header, text):
     """
@@ -168,14 +171,12 @@ class IntegrityTest():
         return self.__locator(file, os.path.isfile(file),hint)
 
     def isCameraConected(self, PopUpOn=False):
-        import cv2
         """
-        @Created by Padawan Alexandre
-
         As the name suggest, checks if the camera is connected by trying to access the camera
         and by capturing any exceptions. If everything works fine, the camera is release and
         can be accessed normally.
         """
+        import cv2
         try:
             cap = cv2.VideoCapture(0)
             ret, frame = cap.read()
@@ -227,9 +228,16 @@ class IntegrityTest():
             return False
 
     def performInitialChecks(self):
+        """
+        Perfoms initial checks.
+        [NOT YET IMPLEMENTED]
+        """
         self.checkInternetConnection()
 
     def __have_internet(self):
+        """
+        Checks if it is possible to connect to [www.google.com]
+        """
         conn = httplib.HTTPConnection("www.google.com", timeout=5)
         try:
             conn.request("HEAD", "/")
@@ -240,6 +248,9 @@ class IntegrityTest():
             return False
     
     def __locator(self, path, found, hint):
+        """
+        Prints a message if a path points to something.
+        """
         if found:
             log.sucess('[ {} ] found'.format(path))
             return True

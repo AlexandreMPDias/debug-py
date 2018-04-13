@@ -36,6 +36,11 @@ or you can simples run:
 pip install colorama
 ```
 
+# Installation
+
+1 - Git clone this repository.
+2 - Copy debug.py to your project's directory.
+
 
 # Notes: 
     -- Not designed to be Thread safe.
